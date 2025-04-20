@@ -12,8 +12,7 @@ const clients = new Set<WebSocket>();
 const messanger = async ()=>{
     await pub.connect()
     await sub.connect()
-    const wss = new WebSocketServer({ port :8080 });
-    console.log("websocket running")
+    const wss = new WebSocketServer({ port:  Number(process.env.PORT)||8080 });
 
     await sub.subscribe("Message",(data)=>{
         clients.forEach((client)=>{
