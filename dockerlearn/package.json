@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc -b ",
-    "start": "node dist/index.js",
+    "start": "pnpm prisma migrate dev && node dist/index.js",
     "dev": "ts-node src/index.ts"
   },
   "keywords": [],

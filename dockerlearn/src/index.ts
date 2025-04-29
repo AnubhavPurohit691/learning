@@ -8,10 +8,11 @@ app.post("/",async(req,res)=>{
     await prisma.user.create({
         data:{
             name:"John",
-            email:"john@gmail.com",
+            email:`${Math.random()}@gmail.com`,
             password:"123456"
         }
     })
+    res.json({message:"User created"})  
 })
 
 app.get("/",async(req,res)=>{

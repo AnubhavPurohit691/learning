@@ -11,9 +11,6 @@ RUN pnpm install
 
 COPY . .
 
-ENV DATABASE_URL="postgresql://postgres:mysecretpassword@localhost:5432/postgres"
-
-RUN pnpm prisma migrate dev
 
 RUN pnpm prisma generate
 
