@@ -1,9 +1,9 @@
-FROM node:23:alpine
+FROM node:23-alpine
 
 WORKDIR /app
 
 COPY ./package.json ./package.json
-COPY ./package-lock.json ./package-lock.json
+COPY ./pnpm-lock.yaml ./pnpm-lock.yaml
 
 RUN npm install -g pnpm
 
@@ -17,7 +17,7 @@ RUN pnpm prisma migrate dev
 
 RUN pnpm prisma generate
 
-RUN pnpx run build
+RUN pnpm run build
 
 
 EXPOSE 3000

@@ -4,7 +4,7 @@ import { PrismaClient } from "@prisma/client"
 const app = express()
 const prisma = new PrismaClient()
 
-app.get("/",async(req,res)=>{
+app.post("/",async(req,res)=>{
     await prisma.user.create({
         data:{
             name:"John",
@@ -12,6 +12,11 @@ app.get("/",async(req,res)=>{
             password:"123456"
         }
     })
+})
+
+app.get("/",async(req,res)=>{
+    const users = await prisma.user.findMany()
+    res.json(users)
 })
 
 
